@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebGuard AI — Detailed Security Report</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="report.css">
+</head>
+<body>
+  <header class="appbar">
+    <div class="wrap appbar-in">
+      <span class="brand"><img src="icons/logo.svg" alt="" width="34" height="34"><span class="product">WebGuard AI</span></span>
+      <span class="crumb" aria-hidden="true">/</span>
+      <span class="tab">Detailed Security Report</span>
+      <span class="spacer"></span>
+      <span id="r-status" class="status-pill" role="status"><i aria-hidden="true"></i><span id="r-status-text">Loading</span></span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p id="loading" class="state" role="status">Loading the assessment…</p>
+    <section id="missing" class="card state-card" hidden role="alert">
+      <h2>No assessment to show</h2>
+      <p id="missing-text">This assessment is no longer available. WebGuard AI keeps recent results only until the browser
+        closes. Open the WebGuard AI popup on the page and choose <strong>View detailed report</strong> again.</p>
+    </section>
+
+    <article id="report" hidden>
+      <div class="intro">
+        <div class="intro-main">
+          <p class="eyebrow">Website risk assessment</p>
+          <h1 id="r-host"></h1>
+          <p id="r-url" class="url"></p>
+        </div>
+        <p class="meta"><span id="r-time"></span><span class="sep">•</span>ID <code id="r-id"></code><span class="sep">•</span>API <span id="r-api"></span></p>
+      </div>
+
+      <section class="card hero" aria-label="Risk score">
+        <div class="gauge-box">
+          <svg id="gauge" class="gauge" viewBox="0 0 240 132" role="img" aria-labelledby="gauge-label"><title id="gauge-label">Risk score</title></svg>
+          <div class="readout"><p class="score"><span id="r-score">–</span><span class="of">/100</span></p></div>
+        </div>
+        <div class="hero-text">
+          <p id="r-badge" class="cat-label"></p>
+          <p id="r-note" class="interpretation"></p>
+          <dl class="hero-facts">
+            <div><dt>Confidence (backend)</dt><dd id="r-confidence"></dd></div>
+            <div><dt>Decision basis</dt><dd id="r-basis"></dd></div>
+          </dl>
+          <p class="caveat">The score summarises the evidence below. It is not a probability, and a low score is never proof that a site is safe.</p>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Summary">
+        <div class="metric" id="m-score-card"><p class="m-head">Risk score<span class="m-icon" data-icon="gauge"></span></p><p id="m-score" class="m-value"></p><p class="m-sub">out of 100</p></div>
+        <div class="metric" id="m-category-card"><p class="m-head">Risk category<span class="m-icon" data-icon="shield"></span></p><p id="m-category" class="m-value m-text"></p><p class="m-sub">from the backend</p></div>
+        <div class="metric st-triggered"><p class="m-head">Triggered checks<span class="m-icon" data-icon="alert"></span></p><p id="m-triggered" class="m-value"></p><p id="m-triggered-sub" class="m-sub"></p></div>
+        <div class="metric st-passed"><p class="m-head">Passed checks<span class="m-icon" data-icon="check"></span></p><p id="m-passed" class="m-value"></p><p class="m-sub">condition not found</p></div>
+        <div class="metric st-unavailable"><p class="m-head">Unavailable checks<span class="m-icon" data-icon="minus"></span></p><p id="m-unavailable" class="m-value"></p><p class="m-sub">source not checked</p></div>
+      </section>
+
+      <section class="card" aria-labelledby="h-flow">
+        <header class="card-head"><h2 id="h-flow">How this result was produced</h2><span class="tag">Backend assessment flow</span></header>
+        <ol id="r-flow" class="flow"></ol>
+        <p class="help flow-help">The model and the reputation sources run in parallel; the rules then use the reputation results.
+          Final category: a confirmed listing makes it Dangerous; otherwise the higher of the model level and the rule level,
+          with the model capped at Caution for hosts with a subdomain or an IP address.</p>
+      </section>
+
+      <div class="grid">
+        <section class="card" aria-labelledby="h-rules">
+          <header class="card-head"><h2 id="h-rules">Rule-by-rule evidence</h2><span id="r-rule-total" class="tag"></span></header>
+          <p class="help"><strong>Passed</strong>: the suspicious condition was not found (not proof of safety).
+            <strong>Unavailable</strong>: the reputation source the rule needs was not checked.
+            <strong>Not evaluated</strong>: the backend lacked the evidence.</p>
+          <p id="r-rule-counts" class="counts"></p>
+          <div class="table-wrap">
+            <table class="rules">
+              <thead><tr><th scope="col">Status</th><th scope="col">Rule</th><th scope="col">What is checked</th><th scope="col">Finding</th></tr></thead>
+              <tbody id="r-rules"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="side">
+          <section class="card" aria-labelledby="h-model">
+            <header class="card-head"><h2 id="h-model">Model evidence</h2><span class="tag">Signal, not a rule</span></header>
+            <div id="r-scale" class="scale" hidden>
+              <div class="scale-track"><span id="r-scale-alert" class="tick-mark"></span><span id="r-scale-high" class="tick-mark"></span><span id="r-scale-dot" class="scale-dot"></span></div>
+              <div class="scale-labels"><span>0</span><span>1</span></div>
+              <p id="r-scale-caption" class="help"></p>
+            </div>
+            <p class="help">Top feature contributions (SHAP log-odds) as returned by the API, 5 of 17 features. Positive pushes towards phishing.</p>
+            <table class="features">
+              <thead><tr><th scope="col">Feature</th><th scope="col">Value</th><th scope="col">Contribution</th></tr></thead>
+              <tbody id="r-features"></tbody>
+            </table>
+            <p id="r-model-meta" class="help model-meta"></p>
+          </section>
+
+          <section class="card" aria-labelledby="h-reco">
+            <header class="card-head"><h2 id="h-reco">Recommended actions</h2></header>
+            <ul id="r-reco" class="ticks"></ul>
+          </section>
+
+          <section class="card" aria-labelledby="h-limits">
+            <header class="card-head"><h2 id="h-limits">Limitations</h2></header>
+            <ul id="r-limits" class="ticks muted-list"></ul>
+          </section>
+        </aside>
+      </div>
+
+      <footer class="foot"><img src="icons/logo.svg" alt="" width="18" height="18"><p id="r-disclaimer"></p></footer>
+    </article>
+  </main>
+  <script type="module" src="report.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "WebGuard AI - Website Risk Analyzer",
+  "version": "0.8.0",
+  "description": "Explains the phishing risk of a URL using a local backend (ML model, rules, threat intelligence). Student project.",
+  "permissions": ["activeTab", "storage"],
+  "optional_permissions": ["tabs", "notifications"],
+  "host_permissions": ["http://127.0.0.1:8000/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "WebGuard AI: risk of this page",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png" }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src http://127.0.0.1:8000"
+  }
+}
