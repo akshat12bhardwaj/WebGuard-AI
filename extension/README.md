@@ -14,7 +14,7 @@ navigation. Only the page URL is sent, and only to the local backend.
 ## 1. Start the backend (with optional reputation keys)
 
 ```powershell
-cd C:\Users\aksha_q43exq6\OneDrive\Documents\AI\website-risk-analyzer
+cd website-risk-analyzer                                     # the repository root
 & $HOME\.venvs\wra\Scripts\Activate.ps1
 $env:URLHAUS_AUTH_KEY = "<your abuse.ch Auth-Key>"            # optional
 $env:GOOGLE_SAFE_BROWSING_KEY = "<your Google API key>"        # optional

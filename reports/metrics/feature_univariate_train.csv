@@ -1,0 +1,22 @@
+feature,auc,direction,legit_mean,phish_mean
+subdomain_length,0.7871,higher = phishing,0.1694,10.3779
+subdomain_count,0.7825,higher = phishing,0.0301,0.7494
+num_dots,0.7388,higher = phishing,1.1626,1.7822
+num_labels,0.7371,higher = phishing,2.1626,2.7772
+host_length,0.7269,higher = phishing,15.2258,23.7787
+host_entropy,0.7225,higher = phishing,3.304,3.6315
+num_digits,0.6925,higher = phishing,0.0496,2.1982
+digit_ratio,0.69,higher = phishing,0.004,0.0766
+registered_domain_length,0.6384,higher = legitimate,15.0275,12.8103
+num_hyphens,0.6376,higher = phishing,0.0835,0.6051
+is_shared_hosting,0.636,higher = phishing,0.0,0.272
+max_consonant_run,0.6018,higher = phishing,2.5868,3.183
+longest_label_length,0.6003,higher = phishing,10.889,14.2544
+avg_label_length,0.5968,higher = phishing,6.6638,7.7585
+vowel_ratio,0.5634,higher = legitimate,0.3693,0.3456
+tld_length,0.5522,higher = legitimate,3.2018,2.931
+suspicious_word_count,0.5182,higher = phishing,0.0023,0.041
+num_numeric_labels,0.5066,higher = phishing,0.0005,0.015
+has_punycode,0.5008,higher = phishing,0.0,0.0016
+is_ip,0.5008,higher = phishing,0.0,0.0017
+num_special_chars,0.5,higher = phishing,0.0,0.0

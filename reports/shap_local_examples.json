@@ -1,0 +1,116 @@
+{
+  "true_positive": {
+    "host": "sicredixseguraca.info",
+    "is_phishing": 1,
+    "calibrated_probability": 0.5113,
+    "base_value_log_odds": 0.0107,
+    "top_contributions": [
+      {
+        "feature": "tld_length",
+        "value": 4.0,
+        "shap_log_odds": 1.4736,
+        "pushes_toward": "phishing"
+      },
+      {
+        "feature": "subdomain_count",
+        "value": 0.0,
+        "shap_log_odds": -0.4457,
+        "pushes_toward": "legitimate"
+      },
+      {
+        "feature": "subdomain_length",
+        "value": 0.0,
+        "shap_log_odds": -0.2692,
+        "pushes_toward": "legitimate"
+      },
+      {
+        "feature": "avg_label_length",
+        "value": 10.0,
+        "shap_log_odds": 0.1259,
+        "pushes_toward": "phishing"
+      },
+      {
+        "feature": "longest_label_length",
+        "value": 16.0,
+        "shap_log_odds": -0.1037,
+        "pushes_toward": "legitimate"
+      }
+    ]
+  },
+  "false_positive": {
+    "host": "usavellino1912.com",
+    "is_phishing": 0,
+    "calibrated_probability": 0.4094,
+    "base_value_log_odds": 0.0107,
+    "top_contributions": [
+      {
+        "feature": "num_digits",
+        "value": 4.0,
+        "shap_log_odds": 0.8776,
+        "pushes_toward": "phishing"
+      },
+      {
+        "feature": "subdomain_count",
+        "value": 0.0,
+        "shap_log_odds": -0.4549,
+        "pushes_toward": "legitimate"
+      },
+      {
+        "feature": "digit_ratio",
+        "value": 0.2222222222222222,
+        "shap_log_odds": 0.3676,
+        "pushes_toward": "phishing"
+      },
+      {
+        "feature": "subdomain_length",
+        "value": 0.0,
+        "shap_log_odds": -0.3402,
+        "pushes_toward": "legitimate"
+      },
+      {
+        "feature": "longest_label_length",
+        "value": 14.0,
+        "shap_log_odds": -0.1178,
+        "pushes_toward": "legitimate"
+      }
+    ]
+  },
+  "false_negative": {
+    "host": "elitetoronto.net",
+    "is_phishing": 1,
+    "calibrated_probability": 0.1443,
+    "base_value_log_odds": 0.0107,
+    "top_contributions": [
+      {
+        "feature": "subdomain_count",
+        "value": 0.0,
+        "shap_log_odds": -0.497,
+        "pushes_toward": "legitimate"
+      },
+      {
+        "feature": "subdomain_length",
+        "value": 0.0,
+        "shap_log_odds": -0.269,
+        "pushes_toward": "legitimate"
+      },
+      {
+        "feature": "tld_length",
+        "value": 3.0,
+        "shap_log_odds": -0.1163,
+        "pushes_toward": "legitimate"
+      },
+      {
+        "feature": "vowel_ratio",
+        "value": 0.4666666666666667,
+        "shap_log_odds": -0.1084,
+        "pushes_toward": "legitimate"
+      },
+      {
+        "feature": "num_digits",
+        "value": 0.0,
+        "shap_log_odds": -0.0978,
+        "pushes_toward": "legitimate"
+      }
+    ]
+  }
+}

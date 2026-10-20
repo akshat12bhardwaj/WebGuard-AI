@@ -1,0 +1,25 @@
+{
+  "selected_model": "XGBoost",
+  "criterion": "highest validation PR-AUC (average precision)",
+  "selected_at_utc": "2026-10-15T02:45:29+00:00",
+  "features": [
+    "host_length",
+    "num_labels",
+    "num_dots",
+    "num_hyphens",
+    "num_digits",
+    "digit_ratio",
+    "longest_label_length",
+    "avg_label_length",
+    "num_numeric_labels",
+    "registered_domain_length",
+    "subdomain_count",
+    "subdomain_length",
+    "tld_length",
+    "host_entropy",
+    "max_consonant_run",
+    "vowel_ratio",
+    "suspicious_word_count"
+  ],
+  "validation_pr_auc": 0.812
+}

@@ -1,0 +1,104 @@
+{
+  "seed": 42,
+  "python": "3.13.7",
+  "sklearn": "1.9.1",
+  "xgboost": "3.4.1",
+  "lightgbm": "4.7.0",
+  "n_iter": 8,
+  "cv": "GroupKFold(3) by registered domain on train only",
+  "scale_pos_weight": 1.4644542406556562,
+  "class_weight": "balanced (LR, RF)",
+  "features": [
+    "host_length",
+    "num_labels",
+    "num_dots",
+    "num_hyphens",
+    "num_digits",
+    "digit_ratio",
+    "longest_label_length",
+    "avg_label_length",
+    "num_numeric_labels",
+    "registered_domain_length",
+    "subdomain_count",
+    "subdomain_length",
+    "tld_length",
+    "host_entropy",
+    "max_consonant_run",
+    "vowel_ratio",
+    "suspicious_word_count"
+  ],
+  "best_params": {
+    "LogisticRegression": {
+      "memory": null,
+      "steps": [
+        [
+          "standardscaler",
+          "StandardScaler()"
+        ],
+        [
+          "logisticregression",
+          "LogisticRegression(class_weight='balanced', max_iter=2000, random_state=42)"
+        ]
+      ],
+      "transform_input": null,
+      "verbose": false,
+      "standardscaler": "StandardScaler()",
+      "logisticregression": "LogisticRegression(class_weight='balanced', max_iter=2000, random_state=42)",
+      "standardscaler__copy": true,
+      "standardscaler__with_mean": true,
+      "standardscaler__with_std": true,
+      "logisticregression__C": 1.0,
+      "logisticregression__class_weight": "balanced",
+      "logisticregression__dual": false,
+      "logisticregression__fit_intercept": true,
+      "logisticregression__intercept_scaling": 1,
+      "logisticregression__l1_ratio": 0.0,
+      "logisticregression__max_iter": 2000,
+      "logisticregression__n_jobs": null,
+      "logisticregression__penalty": "deprecated",
+      "logisticregression__random_state": 42,
+      "logisticregression__solver": "lbfgs",
+      "logisticregression__tol": 0.0001,
+      "logisticregression__verbose": 0,
+      "logisticregression__warm_start": false
+    },
+    "RandomForest": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": "balanced",
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 300,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "LightGBM": {
+      "subsample_freq": 1,
+      "subsample": 1.0,
+      "num_leaves": 31,
+      "n_estimators": 200,
+      "min_child_samples": 50,
+      "learning_rate": 0.05,
+      "colsample_bytree": 0.8
+    },
+    "XGBoost": {
+      "subsample": 0.8,
+      "n_estimators": 200,
+      "min_child_weight": 1,
+      "max_depth": 6,
+      "learning_rate": 0.05,
+      "colsample_bytree": 0.8
+    }
+  }
+}

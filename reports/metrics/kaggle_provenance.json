@@ -1,0 +1,19 @@
+{
+  "page": "https://www.kaggle.com/datasets/sid321axn/malicious-urls-dataset",
+  "download_url": "https://www.kaggle.com/api/v1/datasets/download/sid321axn/malicious-urls-dataset",
+  "metadata_url": "https://www.kaggle.com/api/v1/datasets/view/sid321axn/malicious-urls-dataset",
+  "downloaded_at_utc": "2026-10-15T03:54:22+00:00",
+  "validated_at_utc": "2026-10-15T03:57:12+00:00",
+  "licence": "CC0: Public Domain",
+  "version": 1,
+  "last_updated": "2021-07-23T18:03:30.587Z",
+  "creator": "Manu Siddhartha",
+  "zip_bytes": 17748901,
+  "zip_sha256": "8d085ce1fb4e462111e233a6a302970f699264ae129e3f6e5ac0496f5b69ca79",
+  "members": [
+    "malicious_phish.csv"
+  ],
+  "csv_bytes": 45664439,
+  "csv_sha256": "d83ce942075dd63ed4d11560cfdcd9d512caa3d680e292f22cab484e8f074d01",
+  "download_note": "first download made with curl from download_url (same endpoint the script uses); time = archive file mtime"
+}

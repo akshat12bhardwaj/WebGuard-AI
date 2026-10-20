@@ -1,0 +1,110 @@
+{
+  "n_subdomain_hosts": 3000,
+  "n_unique_registered_domains": 1537,
+  "fpr_alert_subdomain": 0.9347,
+  "fpr_alert_apex": 0.1817,
+  "share_changed_by_subdomain": {
+    "host_length": 1.0,
+    "num_labels": 1.0,
+    "num_dots": 1.0,
+    "num_hyphens": 0.2813,
+    "num_digits": 0.324,
+    "digit_ratio": 0.3667,
+    "longest_label_length": 0.3767,
+    "avg_label_length": 0.9583,
+    "num_numeric_labels": 0.045,
+    "registered_domain_length": 0.0,
+    "subdomain_count": 0.9993,
+    "subdomain_length": 0.9993,
+    "tld_length": 0.0007,
+    "host_entropy": 1.0,
+    "max_consonant_run": 0.296,
+    "vowel_ratio": 0.9183,
+    "suspicious_word_count": 0.023
+  },
+  "counterfactual_registered_domain_only": {
+    "fpr_alert": 0.152,
+    "false_positives_that_clear": 0.8381,
+    "median_prob_host": 0.9167,
+    "median_prob_reg_domain": 0.1857
+  },
+  "shap_top_differences": {
+    "subdomain_count": 2.531599998474121,
+    "subdomain_length": 1.5003999471664429,
+    "num_digits": 0.44339999556541443,
+    "num_hyphens": 0.20900000631809235,
+    "host_length": 0.18770000338554382,
+    "digit_ratio": 0.10260000079870224
+  },
+  "subdomain_count_share_gt0": {
+    "train_legit": 0.0286,
+    "train_phish": 0.5906,
+    "tranco_subdomain": 1.0
+  },
+  "train_phish_rate_by_subdomain_count": {
+    "0": 0.2235,
+    "1": 0.9199,
+    "2": 0.9817,
+    "3": 0.9986
+  },
+  "phiusiil_test_legit_with_subdomain": {
+    "n": 695,
+    "fpr_alert": 0.5108
+  },
+  "fpr_by_common_first_label": {
+    "cdn": {
+      "n": 52,
+      "fpr": 0.923
+    },
+    "api": {
+      "n": 50,
+      "fpr": 0.8
+    },
+    "m": {
+      "n": 42,
+      "fpr": 0.929
+    },
+    "sync": {
+      "n": 23,
+      "fpr": 0.957
+    },
+    "app": {
+      "n": 18,
+      "fpr": 0.778
+    },
+    "web": {
+      "n": 17,
+      "fpr": 0.824
+    },
+    "s": {
+      "n": 16,
+      "fpr": 0.938
+    }
+  },
+  "fpr_by_subdomain_count": {
+    "0.0": 0.0,
+    "1.0": 0.9138,
+    "2.0": 0.9738,
+    "3.0": 0.9972
+  },
+  "hosts_per_registered_domain": {
+    "count": 1537.0,
+    "mean": 1.95,
+    "std": 3.42,
+    "min": 1.0,
+    "25%": 1.0,
+    "50%": 1.0,
+    "75%": 2.0,
+    "max": 46.0
+  },
+  "top_registered_domains_among_fp": {
+    "office.net": 46,
+    "akamai.net": 44,
+    "trafficmanager.net": 42,
+    "aws.dev": 33,
+    "aaplimg.com": 33,
+    "akamaiedge.net": 31,
+    "playstation.net": 29,
+    "cloud.microsoft": 29
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "note": "diagnostic only; external set already used for diagnosis",
+  "before_phase3_rules": {
+    "tranco_subdomain": {
+      "BRAND_IN_HOST_MISMATCH": 154
+    },
+    "tranco_apex": {
+      "BRAND_IN_HOST_MISMATCH": 7
+    },
+    "openphish": {
+      "BRAND_IN_HOST_MISMATCH": 4
+    }
+  },
+  "tranco_apex": {
+    "n": 3000,
+    "brand_rule_fires": {
+      "BRAND_IN_HOST_MISMATCH": 2
+    },
+    "example_host": {
+      "BRAND_IN_HOST_MISMATCH": "dropbox-dns.com"
+    },
+    "final_category_share": {
+      "low_risk": 0.818,
+      "caution": 0.1377,
+      "high_risk": 0.0443
+    }
+  },
+  "tranco_subdomain": {
+    "n": 3000,
+    "brand_rule_fires": {
+      "BRAND_IN_SUBDOMAIN": 46,
+      "BRAND_IN_HOST_MISMATCH": 43
+    },
+    "example_host": {
+      "BRAND_IN_SUBDOMAIN": "kv801.prod.do.dsp.mp.microsoft.com.edgekey.net",
+      "BRAND_IN_HOST_MISMATCH": "apple-native-relay.mask.apple-dns.net"
+    },
+    "final_category_share": {
+      "caution": 0.9203,
+      "low_risk": 0.0653,
+      "high_risk": 0.0143
+    }
+  },
+  "openphish": {
+    "n": 221,
+    "brand_rule_fires": {
+      "BRAND_IN_SUBDOMAIN": 3,
+      "BRAND_IN_PATH": 1
+    },
+    "example_host": {
+      "BRAND_IN_SUBDOMAIN": "homeloans-wellsfargo-com.sbx.pgsdemo.com",
+      "BRAND_IN_PATH": "bluesoftsdocrks.com"
+    },
+    "final_category_share": {
+      "caution": 0.8281,
+      "low_risk": 0.1267,
+      "high_risk": 0.0452
+    }
+  }
+}

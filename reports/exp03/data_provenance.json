@@ -1,0 +1,39 @@
+{
+  "candidates": 871674,
+  "dropped_ip_host": 0,
+  "dropped_host_is_public_suffix": 831,
+  "dropped_no_subdomain": 675762,
+  "dropped_shared_hosting": 419,
+  "dropped_domain_in_phiusiil_val_test": 8267,
+  "dropped_domain_in_external_test": 57001,
+  "dropped_domain_in_kaggle": 21728,
+  "dropped_domain_in_openphish": 0,
+  "dropped_domain_in_phiusiil_train_phishing": 3168,
+  "dropped_host_in_phiusiil": 58,
+  "dropped_over_3_per_domain": 46917,
+  "selected": 57523,
+  "pinned_to_train_domain_in_phiusiil_train": 3226,
+  "train": {
+    "rows": 41147,
+    "registered_domains": 27455
+  },
+  "val": {
+    "rows": 8249,
+    "registered_domains": 5467
+  },
+  "test": {
+    "rows": 8127,
+    "registered_domains": 5468
+  },
+  "source": "Tranco list Q2Y54 (subdomains on), created 2026-10-14T22:00 UTC",
+  "raw_file": "data\\raw\\tranco\\Q2Y54.csv",
+  "raw_sha256": "2c8720e6d2aabc5efce14422621f00e51028d8810d39271b44f8b7ae1d628a2f",
+  "ranks": [
+    100001,
+    1000000
+  ],
+  "band_rows": 900000,
+  "label_policy": "legitimate (0) by popularity assumption after exclusions; not verified site by site",
+  "max_hosts_per_domain": 3,
+  "seed": 42
+}

@@ -1,0 +1,10 @@
+Selected model XGBoost (isotonic), alert threshold 0.3662
+
+              precision    recall  f1-score   support
+
+  legitimate     0.8193    0.9269    0.8698     20283
+    phishing     0.7722    0.5479    0.6410      9170
+
+    accuracy                         0.8089     29453
+   macro avg     0.7958    0.7374    0.7554     29453
+weighted avg     0.8047    0.8089    0.7986     29453

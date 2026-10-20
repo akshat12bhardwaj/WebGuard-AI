@@ -1,0 +1,60 @@
+{
+  "selected_model": "XGBoost",
+  "val_cal_rows": 14370,
+  "val_thr_rows": 16440,
+  "scores_on_val_thr": {
+    "uncalibrated": {
+      "brier": 0.12669,
+      "log_loss": 0.39763,
+      "ece": 0.04829
+    },
+    "sigmoid": {
+      "brier": 0.12506,
+      "log_loss": 0.40257,
+      "ece": 0.02898
+    },
+    "isotonic": {
+      "brier": 0.12394,
+      "log_loss": 0.39749,
+      "ece": 0.00925
+    }
+  },
+  "chosen_calibration": "isotonic",
+  "thresholds": {
+    "alert": 0.3662,
+    "high": 0.5671,
+    "rule": "alert: lowest threshold with FPR <= 0.1; high: lowest threshold with precision >= 0.95 (on val_thr)"
+  },
+  "val_thr_metrics_at_alert": {
+    "threshold": 0.3662,
+    "accuracy": 0.8328,
+    "precision": 0.8641,
+    "recall": 0.6799,
+    "f1": 0.761,
+    "roc_auc": 0.8574,
+    "pr_auc": 0.8551,
+    "brier": 0.1239,
+    "fpr": 0.0688,
+    "fnr": 0.3201,
+    "tn": 9316,
+    "fp": 688,
+    "fn": 2060,
+    "tp": 4376
+  },
+  "val_thr_metrics_at_high": {
+    "threshold": 0.5671,
+    "accuracy": 0.8325,
+    "precision": 0.9637,
+    "recall": 0.5946,
+    "f1": 0.7355,
+    "roc_auc": 0.8574,
+    "pr_auc": 0.8551,
+    "brier": 0.1239,
+    "fpr": 0.0144,
+    "fnr": 0.4054,
+    "tn": 9860,
+    "fp": 144,
+    "fn": 2609,
+    "tp": 3827
+  }
+}

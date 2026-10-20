@@ -1,0 +1,268 @@
+{
+  "model": "XGBoost+isotonic (host-v1)",
+  "thresholds": {
+    "alert": 0.3662,
+    "high": 0.5671,
+    "rule": "alert: lowest threshold with FPR <= 0.1; high: lowest threshold with precision >= 0.95 (on val_thr)"
+  },
+  "sets": {
+    "external_all": {
+      "rows": 6221,
+      "phishing": 221,
+      "legitimate": 6000,
+      "alert": {
+        "threshold": 0.3662,
+        "accuracy": 0.457,
+        "precision": 0.0542,
+        "recall": 0.8688,
+        "f1": 0.1021,
+        "roc_auc": 0.7796,
+        "pr_auc": 0.1176,
+        "brier": 0.4119,
+        "fpr": 0.5582,
+        "fnr": 0.1312,
+        "tn": 2651,
+        "fp": 3349,
+        "fn": 29,
+        "tp": 192,
+        "ci95": {
+          "precision": [
+            0.0513,
+            0.0569
+          ],
+          "recall": [
+            0.8235,
+            0.9096
+          ],
+          "fpr": [
+            0.5463,
+            0.5698
+          ],
+          "pr_auc": [
+            0.1014,
+            0.1346
+          ]
+        }
+      },
+      "high": {
+        "threshold": 0.5671,
+        "accuracy": 0.5583,
+        "precision": 0.0648,
+        "recall": 0.8507,
+        "f1": 0.1204,
+        "roc_auc": 0.7796,
+        "pr_auc": 0.1176,
+        "brier": 0.4119,
+        "fpr": 0.4525,
+        "fnr": 0.1493,
+        "tn": 3285,
+        "fp": 2715,
+        "fn": 33,
+        "tp": 188,
+        "ci95": {
+          "precision": [
+            0.0611,
+            0.0684
+          ],
+          "recall": [
+            0.8054,
+            0.8959
+          ],
+          "fpr": [
+            0.44,
+            0.4647
+          ],
+          "pr_auc": [
+            0.1014,
+            0.1346
+          ]
+        }
+      }
+    },
+    "openphish_vs_tranco_apex": {
+      "rows": 3221,
+      "phishing": 221,
+      "legitimate": 3000,
+      "alert": {
+        "threshold": 0.3662,
+        "accuracy": 0.8218,
+        "precision": 0.2605,
+        "recall": 0.8688,
+        "f1": 0.4008,
+        "roc_auc": 0.9194,
+        "pr_auc": 0.8114,
+        "brier": 0.0942,
+        "fpr": 0.1817,
+        "fnr": 0.1312,
+        "tn": 2455,
+        "fp": 545,
+        "fn": 29,
+        "tp": 192
+      },
+      "high": {
+        "threshold": 0.5671,
+        "accuracy": 0.9491,
+        "precision": 0.5893,
+        "recall": 0.8507,
+        "f1": 0.6963,
+        "roc_auc": 0.9194,
+        "pr_auc": 0.8114,
+        "brier": 0.0942,
+        "fpr": 0.0437,
+        "fnr": 0.1493,
+        "tn": 2869,
+        "fp": 131,
+        "fn": 33,
+        "tp": 188
+      }
+    },
+    "openphish_vs_tranco_subdomain": {
+      "rows": 3221,
+      "phishing": 221,
+      "legitimate": 3000,
+      "alert": {
+        "threshold": 0.3662,
+        "accuracy": 0.1205,
+        "precision": 0.0641,
+        "recall": 0.8688,
+        "f1": 0.1194,
+        "roc_auc": 0.6397,
+        "pr_auc": 0.1216,
+        "brier": 0.7079,
+        "fpr": 0.9347,
+        "fnr": 0.1312,
+        "tn": 196,
+        "fp": 2804,
+        "fn": 29,
+        "tp": 192
+      },
+      "high": {
+        "threshold": 0.5671,
+        "accuracy": 0.1875,
+        "precision": 0.0678,
+        "recall": 0.8507,
+        "f1": 0.1256,
+        "roc_auc": 0.6397,
+        "pr_auc": 0.1216,
+        "brier": 0.7079,
+        "fpr": 0.8613,
+        "fnr": 0.1493,
+        "tn": 416,
+        "fp": 2584,
+        "fn": 33,
+        "tp": 188
+      }
+    },
+    "kaggle_unseen_domains": {
+      "rows": 164490,
+      "phishing": 45566,
+      "legitimate": 118924,
+      "alert": {
+        "threshold": 0.3662,
+        "accuracy": 0.5907,
+        "precision": 0.2827,
+        "recall": 0.3106,
+        "f1": 0.296,
+        "roc_auc": 0.5241,
+        "pr_auc": 0.2859,
+        "brier": 0.3115,
+        "fpr": 0.302,
+        "fnr": 0.6894,
+        "tn": 83010,
+        "fp": 35914,
+        "fn": 31411,
+        "tp": 14155,
+        "ci95": {
+          "precision": [
+            0.2795,
+            0.286
+          ],
+          "recall": [
+            0.3062,
+            0.3147
+          ],
+          "fpr": [
+            0.2993,
+            0.3045
+          ],
+          "pr_auc": [
+            0.284,
+            0.288
+          ]
+        }
+      },
+      "high": {
+        "threshold": 0.5671,
+        "accuracy": 0.6123,
+        "precision": 0.2649,
+        "recall": 0.225,
+        "f1": 0.2433,
+        "roc_auc": 0.5241,
+        "pr_auc": 0.2859,
+        "brier": 0.3115,
+        "fpr": 0.2393,
+        "fnr": 0.775,
+        "tn": 90468,
+        "fp": 28456,
+        "fn": 35312,
+        "tp": 10254,
+        "ci95": {
+          "precision": [
+            0.2611,
+            0.2687
+          ],
+          "recall": [
+            0.2213,
+            0.2287
+          ],
+          "fpr": [
+            0.2368,
+            0.2417
+          ],
+          "pr_auc": [
+            0.284,
+            0.288
+          ]
+        }
+      }
+    }
+  },
+  "fpr_by_legitimate_subset": {
+    "tranco_apex": {
+      "alert": {
+        "fpr": 0.1817,
+        "ci95": [
+          0.1687,
+          0.1957
+        ]
+      },
+      "high": {
+        "fpr": 0.0437,
+        "ci95": [
+          0.0367,
+          0.051
+        ]
+      }
+    },
+    "tranco_subdomain": {
+      "alert": {
+        "fpr": 0.9347,
+        "ci95": [
+          0.926,
+          0.9433
+        ]
+      },
+      "high": {
+        "fpr": 0.8613,
+        "ci95": [
+          0.849,
+          0.874
+        ]
+      }
+    }
+  },
+  "openphish_recall": {
+    "alert": 0.8688,
+    "high": 0.8507
+  }
+}

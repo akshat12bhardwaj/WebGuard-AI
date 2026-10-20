@@ -1,0 +1,19 @@
+# Phase 6 freeze (reports/phase6/frozen_system.json records SHA-256 of these exact bytes).
+# -text: never convert line endings on add or checkout, so the recorded hashes stay valid.
+ml/feature_extraction.py -text
+ml/predict.py -text
+ml/utils.py -text
+ml/external_data.py -text
+ml/kaggle_data.py -text
+backend/rules.py -text
+backend/fusion.py -text
+backend/service.py -text
+backend/threat_intel.py -text
+backend/evidence.py -text
+backend/api.py -text
+ml/phase6_collect.py -text
+ml/phase6_evaluate.py -text
+ml/phase6_platforms.py -text
+ml/phase6_platforms.json -text
+docs/PHASE6_PROTOCOL.md -text
+reports/phase6/frozen_system.json -text

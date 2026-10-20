@@ -1,0 +1,18 @@
+feature,mean_abs_shap,corr_value_vs_shap,typical_direction
+subdomain_count,0.6822,0.9163,higher value -> toward phishing
+subdomain_length,0.4259,0.8369,higher value -> toward phishing
+num_digits,0.2403,0.8244,higher value -> toward phishing
+tld_length,0.1897,0.0895,higher value -> toward phishing
+num_hyphens,0.1371,0.8594,higher value -> toward phishing
+vowel_ratio,0.1366,-0.8467,higher value -> toward legitimate
+avg_label_length,0.1299,0.6479,higher value -> toward phishing
+num_labels,0.1167,-0.7255,higher value -> toward legitimate
+host_length,0.0982,0.7486,higher value -> toward phishing
+longest_label_length,0.0825,-0.0749,higher value -> toward legitimate
+host_entropy,0.0724,0.4962,higher value -> toward phishing
+digit_ratio,0.0696,0.9345,higher value -> toward phishing
+registered_domain_length,0.0576,0.2099,higher value -> toward phishing
+max_consonant_run,0.0454,0.6699,higher value -> toward phishing
+num_dots,0.0451,-0.3941,higher value -> toward legitimate
+suspicious_word_count,0.0311,0.9619,higher value -> toward phishing
+num_numeric_labels,1e-04,-0.3891,higher value -> toward legitimate

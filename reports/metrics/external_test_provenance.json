@@ -1,0 +1,52 @@
+{
+  "built_at_utc": "20261015T035838Z",
+  "openphish": {
+    "feed_url": "https://raw.githubusercontent.com/openphish/public_feed/refs/heads/main/feed.txt",
+    "github_commit": "d9c06b3b03dbde41293b4643d290a6dfef83267d",
+    "commit_time_utc": "2026-10-15T00:00:09Z",
+    "local_path": "data\\raw\\openphish\\feed_20261015T035838Z.txt",
+    "sha256": "3ae958e9039cb2d88ab7a039726445ca08936c773820c8c4e4310477a29305f4",
+    "urls": 300,
+    "valid_unique_hosts": 280
+  },
+  "tranco_apex": {
+    "list_id": "N26XW",
+    "created_on": "2026-10-14T22:00:02.833418",
+    "download": "https://tranco-list.eu/download/N26XW/1000000",
+    "local_path": "data\\raw\\tranco\\N26XW.csv",
+    "sha256": "2ad192693c700cb20b596870706c4cc2f497d2bb45421466af1e6e739b3a484a"
+  },
+  "tranco_subdomain": {
+    "list_id": "Q2Y54",
+    "created_on": "2026-10-14T22:00:03.325586",
+    "download": "https://tranco-list.eu/download/Q2Y54/1000000",
+    "local_path": "data\\raw\\tranco\\Q2Y54.csv",
+    "sha256": "2c8720e6d2aabc5efce14422621f00e51028d8810d39271b44f8b7ae1d628a2f"
+  },
+  "negative_rank_cutoff": 100000,
+  "exclusions": {
+    "tranco_apex": {
+      "candidates": 100000,
+      "dropped_shared_or_ambiguous": 41,
+      "dropped_training_domain_overlap": 14295,
+      "kept": 3000
+    },
+    "tranco_subdomain": {
+      "candidates": 19132,
+      "dropped_shared_or_ambiguous": 17,
+      "dropped_training_domain_overlap": 6159,
+      "kept": 3000
+    },
+    "openphish": {
+      "candidates": 280,
+      "dropped_training_domain_overlap": 59,
+      "kept": 221
+    }
+  },
+  "final_counts": {
+    "tranco_apex": 3000,
+    "tranco_subdomain": 3000,
+    "openphish": 221
+  },
+  "overlap_policy": "registered domains in PhiUSIIL train or any Kaggle binary host removed"
+}

@@ -1,0 +1,83 @@
+{
+  "chrome_version": "Chrome/155.0.8059.41",
+  "extension_id": "lafljeioebihgenmmbbcpbbafifhkjdo",
+  "extension_loaded": true,
+  "own_tab_status": "Pages using \"chrome-extension:\" (browser or local pages) cannot be analyzed. Type an address to check it instead.",
+  "wikipedia": {
+    "result_visible": true,
+    "badge": "Low risk — wikipedia.org",
+    "risk": "17/100",
+    "confidence": "high",
+    "note": "No strong warning signs found. This is not proof that the site is safe.",
+    "ti": [
+      "PhishTank: Unverified (reported to PhishTank but not verified as a valid phish)",
+      "URLhaus: Not checked (set URLHAUS_AUTH_KEY to enable)",
+      "Google Safe Browsing: Not checked (set GOOGLE_SAFE_BROWSING_KEY to enable)",
+      "OpenPhish (local snapshot): Not listed (snapshot 2026-10-16 03:16 UTC, 0 h old)"
+    ],
+    "rules": [
+      "No rule fired."
+    ],
+    "error": null,
+    "retry_button_visible": false
+  },
+  "cdn_subdomain": {
+    "result_visible": true,
+    "badge": "Caution — img01.microsoft.com.edgekey.net",
+    "risk": "56/100",
+    "confidence": "low",
+    "note": "Some warning signs. This is not proof that the site is malicious.",
+    "ti": [
+      "PhishTank: Not listed (not in PhishTank database)",
+      "URLhaus: Not checked (set URLHAUS_AUTH_KEY to enable)",
+      "Google Safe Browsing: Not checked (set GOOGLE_SAFE_BROWSING_KEY to enable)",
+      "OpenPhish (local snapshot): Not listed (snapshot 2026-10-16 03:16 UTC, 0 h old)"
+    ],
+    "rules": [
+      "medium 'microsoft' appears in the subdomain of 'edgekey.net'. This is common for delegated hosting and CDNs (e.g. <name>.microsoft.com.edgekey.net) but is also a phishing trick."
+    ],
+    "error": null,
+    "retry_button_visible": false
+  },
+  "impersonation_pattern": {
+    "result_visible": true,
+    "badge": "High risk — secure-paypal.com",
+    "risk": "92/100",
+    "confidence": "high",
+    "note": "Strong warning signs. This is a warning, not a confirmed listing.",
+    "ti": [
+      "PhishTank: Not listed (not in PhishTank database)",
+      "URLhaus: Not checked (set URLHAUS_AUTH_KEY to enable)",
+      "Google Safe Browsing: Not checked (set GOOGLE_SAFE_BROWSING_KEY to enable)",
+      "OpenPhish (local snapshot): Not listed (snapshot 2026-10-16 03:16 UTC, 0 h old)"
+    ],
+    "rules": [
+      "high The registered name 'secure-paypal.com' contains 'paypal' but is not a known paypal domain."
+    ],
+    "error": null,
+    "retry_button_visible": false
+  },
+  "browser_page": {
+    "result_visible": false,
+    "badge": null,
+    "risk": null,
+    "confidence": null,
+    "note": null,
+    "ti": [],
+    "rules": [],
+    "error": "Pages using \"chrome:\" (browser or local pages) cannot be analyzed.",
+    "retry_button_visible": true
+  },
+  "invalid_text": {
+    "result_visible": false,
+    "badge": null,
+    "risk": null,
+    "confidence": null,
+    "note": null,
+    "ti": [],
+    "rules": [],
+    "error": "This is not a valid web address.",
+    "retry_button_visible": true
+  },
+  "keyboard_enter_submits": true
+}

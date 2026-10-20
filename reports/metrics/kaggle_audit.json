@@ -1,0 +1,68 @@
+{
+  "rows": 651191,
+  "columns": [
+    "url",
+    "type"
+  ],
+  "type_counts": {
+    "benign": 428103,
+    "defacement": 96457,
+    "phishing": 94111,
+    "malware": 32520
+  },
+  "missing": {
+    "url": 0,
+    "type": 0
+  },
+  "duplicate_urls": 10072,
+  "urls_with_conflicting_types": 6,
+  "timestamps": "none in the file; sources per description: ISCX-URL-2016, malwaredomains, faizan-ahmad repo, PhishTank, PhishStorm; Kaggle version 1, last updated 2021-07-23T18:03:30.587Z",
+  "url_format_share_by_type": {
+    "has_scheme": {
+      "benign": 0.0826,
+      "defacement": 1.0,
+      "malware": 0.9628,
+      "phishing": 0.2641
+    },
+    "https": {
+      "benign": 0.0046,
+      "defacement": 0.0,
+      "malware": 0.208,
+      "phishing": 0.074
+    },
+    "www_prefix": {
+      "benign": 0.0309,
+      "defacement": 0.698,
+      "malware": 0.093,
+      "phishing": 0.3875
+    },
+    "has_path": {
+      "benign": 0.8888,
+      "defacement": 1.0,
+      "malware": 0.9689,
+      "phishing": 0.7497
+    }
+  },
+  "binary_cleaning": {
+    "rows_in": 522214,
+    "rows_missing_url_or_label": 0,
+    "rows_invalid_url": 3996,
+    "hosts_with_conflicting_labels": 4045,
+    "rows_dropped_conflicting": 98073,
+    "rows_dropped_duplicate_host": 241383,
+    "rows_out": 178762,
+    "class_counts_out": {
+      "0": 127951,
+      "1": 50811
+    }
+  },
+  "overlap_with_phiusiil": {
+    "exact_url_keys": 1233,
+    "hosts": 6655,
+    "hosts_with_disagreeing_labels": 1069,
+    "registered_domains": 7900,
+    "registered_domains_in_phiusiil_train": 5531,
+    "registered_domains_in_phiusiil_val": 1175,
+    "registered_domains_in_phiusiil_test": 1194
+  }
+}

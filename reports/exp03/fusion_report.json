@@ -1,0 +1,74 @@
+{
+  "thresholds": {
+    "alert": 0.3662,
+    "high": 0.5671,
+    "rule": "alert: lowest threshold with FPR <= 0.1; high: lowest threshold with precision >= 0.95 (on val_thr)"
+  },
+  "ti": "not checked (offline)",
+  "tranco_apex": {
+    "n": 3000,
+    "raw_flag_rate_alert": 0.1817,
+    "raw_flag_rate_high": 0.0437,
+    "final_below_high": {
+      "low_risk": 0.817,
+      "caution": 0.137,
+      "high_risk": 0.046
+    },
+    "final_below_high_caution_or_worse": 0.183,
+    "final_below_alert": {
+      "low_risk": 0.817,
+      "caution": 0.137,
+      "high_risk": 0.046
+    },
+    "final_below_alert_caution_or_worse": 0.183
+  },
+  "tranco_subdomain": {
+    "n": 3000,
+    "raw_flag_rate_alert": 0.9347,
+    "raw_flag_rate_high": 0.8613,
+    "final_below_high": {
+      "caution": 0.8833,
+      "low_risk": 0.0653,
+      "high_risk": 0.0513
+    },
+    "final_below_high_caution_or_worse": 0.9346,
+    "final_below_alert": {
+      "low_risk": 0.9487,
+      "high_risk": 0.0513
+    },
+    "final_below_alert_caution_or_worse": 0.0513
+  },
+  "openphish": {
+    "n": 221,
+    "raw_flag_rate_alert": 0.8688,
+    "raw_flag_rate_high": 0.8507,
+    "final_below_high": {
+      "caution": 0.81,
+      "low_risk": 0.1267,
+      "high_risk": 0.0633
+    },
+    "final_below_high_caution_or_worse": 0.8733,
+    "final_below_alert": {
+      "low_risk": 0.905,
+      "high_risk": 0.0633,
+      "caution": 0.0317
+    },
+    "final_below_alert_caution_or_worse": 0.095
+  },
+  "new_legit_subdomain_test": {
+    "n": 8127,
+    "raw_flag_rate_alert": 0.9029,
+    "raw_flag_rate_high": 0.7962,
+    "final_below_high": {
+      "caution": 0.899,
+      "low_risk": 0.097,
+      "high_risk": 0.0041
+    },
+    "final_below_high_caution_or_worse": 0.9031,
+    "final_below_alert": {
+      "low_risk": 0.9959,
+      "high_risk": 0.0041
+    },
+    "final_below_alert_caution_or_worse": 0.0041
+  }
+}

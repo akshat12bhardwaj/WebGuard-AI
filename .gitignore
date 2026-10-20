@@ -1,0 +1,28 @@
+# secrets (.env.example holds placeholder names only and is committed)
+.env
+.env.*
+!.env.example
+# environments and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+# data (download with python -m ml.data_download; never re-host)
+data/raw/
+data/processed/
+data/external/
+data/feeds/
+# model artifacts (regenerate with the pipeline)
+models/*.joblib
+models/candidates/
+models/experiments/
+# large intermediate predictions
+reports/metrics/val_predictions.csv
+# logs and tooling
+logs/*.log
+*.log
+node_modules/
+data/fresh/

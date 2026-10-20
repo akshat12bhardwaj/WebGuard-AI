@@ -1,0 +1,116 @@
+{
+  "seed": 42,
+  "val_rows_phiusiil_plus_new": 39059,
+  "B": {
+    "model": "B",
+    "train_rows": 199917,
+    "train_phishing_share": 0.3223,
+    "train_legit_with_subdomain_share": 0.3236,
+    "fit_seconds": 0.8,
+    "val_cal_rows": 18854,
+    "val_thr_rows": 20205,
+    "val_thr_brier": {
+      "uncalibrated": 0.1504,
+      "isotonic": 0.13567
+    },
+    "val_thr_ece": {
+      "uncalibrated": 0.11438,
+      "isotonic": 0.01074
+    },
+    "thresholds": {
+      "alert": 0.3815925717353821,
+      "high": 0.7142857909202576,
+      "rule": "alert: lowest threshold with FPR <= 0.1; high: lowest threshold with precision >= 0.95 (on val_thr)"
+    },
+    "val_thr_at_alert": {
+      "threshold": 0.3816,
+      "accuracy": 0.8166,
+      "precision": 0.7628,
+      "recall": 0.5538,
+      "f1": 0.6417,
+      "roc_auc": 0.8138,
+      "pr_auc": 0.7369,
+      "brier": 0.1357,
+      "fpr": 0.0726,
+      "fnr": 0.4462,
+      "tn": 13180,
+      "fp": 1032,
+      "fn": 2674,
+      "tp": 3319
+    },
+    "val_thr_at_high": {
+      "threshold": 0.7143,
+      "accuracy": 0.8023,
+      "precision": 0.9533,
+      "recall": 0.3506,
+      "f1": 0.5126,
+      "roc_auc": 0.8138,
+      "pr_auc": 0.7369,
+      "brier": 0.1357,
+      "fpr": 0.0072,
+      "fnr": 0.6494,
+      "tn": 14109,
+      "fp": 103,
+      "fn": 3892,
+      "tp": 2101
+    },
+    "val_thr_legit_subdomain_fpr_alert": 0.1123,
+    "bundle": "models\\experiments\\exp03_B\\model_bundle.joblib"
+  },
+  "C": {
+    "model": "C",
+    "train_rows": 163770,
+    "train_phishing_share": 0.3934,
+    "train_legit_with_subdomain_share": 0.0775,
+    "fit_seconds": 0.6,
+    "val_cal_rows": 18854,
+    "val_thr_rows": 20205,
+    "val_thr_brier": {
+      "uncalibrated": 0.18776,
+      "isotonic": 0.14548
+    },
+    "val_thr_ece": {
+      "uncalibrated": 0.15761,
+      "isotonic": 0.01279
+    },
+    "thresholds": {
+      "alert": 0.2897033393383026,
+      "high": 0.7454546093940735,
+      "rule": "alert: lowest threshold with FPR <= 0.1; high: lowest threshold with precision >= 0.95 (on val_thr)"
+    },
+    "val_thr_at_alert": {
+      "threshold": 0.2897,
+      "accuracy": 0.7964,
+      "precision": 0.7199,
+      "recall": 0.5134,
+      "f1": 0.5994,
+      "roc_auc": 0.7754,
+      "pr_auc": 0.6919,
+      "brier": 0.1455,
+      "fpr": 0.0842,
+      "fnr": 0.4866,
+      "tn": 13015,
+      "fp": 1197,
+      "fn": 2916,
+      "tp": 3077
+    },
+    "val_thr_at_high": {
+      "threshold": 0.7455,
+      "accuracy": 0.7931,
+      "precision": 0.9503,
+      "recall": 0.3192,
+      "f1": 0.4779,
+      "roc_auc": 0.7754,
+      "pr_auc": 0.6919,
+      "brier": 0.1455,
+      "fpr": 0.007,
+      "fnr": 0.6808,
+      "tn": 14112,
+      "fp": 100,
+      "fn": 4080,
+      "tp": 1913
+    },
+    "val_thr_legit_subdomain_fpr_alert": 0.2585,
+    "bundle": "models\\experiments\\exp03_C\\model_bundle.joblib"
+  }
+}

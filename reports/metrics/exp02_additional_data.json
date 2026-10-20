@@ -1,0 +1,133 @@
+{
+  "kaggle_train_hosts": 115541,
+  "kaggle_test_hosts": 45641,
+  "combined_train_hosts": 270555,
+  "kaggle_share_with_subdomain": {
+    "benign": 0.2292,
+    "phishing": 0.2445
+  },
+  "models": {
+    "B_baseline": {
+      "alert_threshold_from_phiusiil_val": 0.4083,
+      "phiusiil_test": {
+        "pr_auc": 0.7469,
+        "roc_auc": 0.7983,
+        "precision": 0.7181,
+        "recall": 0.5874,
+        "fpr": 0.1042
+      },
+      "kaggle_test": {
+        "pr_auc": 0.3113,
+        "roc_auc": 0.5474,
+        "precision": 0.3168,
+        "recall": 0.3275,
+        "fpr": 0.2793
+      },
+      "external_all": {
+        "pr_auc": 0.2063,
+        "roc_auc": 0.7969,
+        "precision": 0.0526,
+        "recall": 0.8869,
+        "fpr": 0.588
+      },
+      "openphish_vs_tranco_apex": {
+        "pr_auc": 0.8326,
+        "roc_auc": 0.9191,
+        "precision": 0.2222,
+        "recall": 0.8869,
+        "fpr": 0.2287
+      },
+      "openphish_vs_tranco_subdomain": {
+        "pr_auc": 0.2097,
+        "roc_auc": 0.6747,
+        "precision": 0.0645,
+        "recall": 0.8869,
+        "fpr": 0.9473
+      }
+    },
+    "C_phiusiil+kaggle": {
+      "alert_threshold_from_phiusiil_val": 0.4778,
+      "phiusiil_test": {
+        "pr_auc": 0.723,
+        "roc_auc": 0.7806,
+        "precision": 0.7075,
+        "recall": 0.5586,
+        "fpr": 0.1044
+      },
+      "kaggle_test": {
+        "pr_auc": 0.4077,
+        "roc_auc": 0.6213,
+        "precision": 0.3912,
+        "recall": 0.3166,
+        "fpr": 0.1948
+      },
+      "external_all": {
+        "pr_auc": 0.1795,
+        "roc_auc": 0.7888,
+        "precision": 0.0528,
+        "recall": 0.8597,
+        "fpr": 0.5685
+      },
+      "openphish_vs_tranco_apex": {
+        "pr_auc": 0.6583,
+        "roc_auc": 0.9029,
+        "precision": 0.2189,
+        "recall": 0.8597,
+        "fpr": 0.226
+      },
+      "openphish_vs_tranco_subdomain": {
+        "pr_auc": 0.1918,
+        "roc_auc": 0.6747,
+        "precision": 0.065,
+        "recall": 0.8597,
+        "fpr": 0.911
+      }
+    },
+    "D_kaggle_only": {
+      "alert_threshold_from_phiusiil_val": 0.6855,
+      "phiusiil_test": {
+        "pr_auc": 0.4807,
+        "roc_auc": 0.6053,
+        "precision": 0.5355,
+        "recall": 0.2571,
+        "fpr": 0.1008
+      },
+      "kaggle_test": {
+        "pr_auc": 0.4967,
+        "roc_auc": 0.6823,
+        "precision": 0.608,
+        "recall": 0.2078,
+        "fpr": 0.053
+      },
+      "external_all": {
+        "pr_auc": 0.0903,
+        "roc_auc": 0.6665,
+        "precision": 0.0829,
+        "recall": 0.543,
+        "fpr": 0.2212
+      },
+      "openphish_vs_tranco_apex": {
+        "pr_auc": 0.2283,
+        "roc_auc": 0.6834,
+        "precision": 0.1843,
+        "recall": 0.543,
+        "fpr": 0.177
+      },
+      "openphish_vs_tranco_subdomain": {
+        "pr_auc": 0.133,
+        "roc_auc": 0.6496,
+        "precision": 0.131,
+        "recall": 0.543,
+        "fpr": 0.2653
+      }
+    }
+  },
+  "decision": {
+    "gains_C_minus_B": {
+      "external_all_pr_auc": -0.0268,
+      "subdomain_roc_auc": 0.0,
+      "phiusiil_test_pr_auc": -0.0239
+    },
+    "kaggle_useful_for_training": false
+  }
+}

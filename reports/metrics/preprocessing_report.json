@@ -1,0 +1,38 @@
+{
+  "rows_in": 235795,
+  "rows_missing_url_or_label": 0,
+  "rows_invalid_url": 8,
+  "hosts_with_conflicting_labels": 58,
+  "rows_dropped_conflicting": 159,
+  "rows_dropped_duplicate_host": 16595,
+  "rows_out": 219033,
+  "class_counts_out": {
+    "0": 134792,
+    "1": 84241
+  },
+  "input_sha256": "a236549cd369cd80bd478ff8e1779cbf44c58d5c3f79f7a51a1adbed7d06d1c6",
+  "output": "dataset.csv",
+  "features": [
+    "host_length",
+    "num_labels",
+    "num_dots",
+    "num_hyphens",
+    "num_digits",
+    "digit_ratio",
+    "num_special_chars",
+    "longest_label_length",
+    "avg_label_length",
+    "num_numeric_labels",
+    "registered_domain_length",
+    "subdomain_count",
+    "subdomain_length",
+    "tld_length",
+    "host_entropy",
+    "max_consonant_run",
+    "vowel_ratio",
+    "is_ip",
+    "has_punycode",
+    "suspicious_word_count",
+    "is_shared_hosting"
+  ]
+}

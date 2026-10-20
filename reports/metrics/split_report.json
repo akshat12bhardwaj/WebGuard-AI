@@ -1,0 +1,30 @@
+{
+  "seed": 42,
+  "group_key": "registered domain (tldextract eTLD+1, offline PSL)",
+  "input_sha256": "3b5951adc54011039deedbefc1b267685a5b2d0e79464ee8e7f9640b75248dc9",
+  "domain_overlap": "none (asserted)",
+  "train": {
+    "rows": 158770,
+    "share": 0.7249,
+    "unique_domains": 122810,
+    "phishing": 64424,
+    "legitimate": 94346,
+    "phishing_share": 0.4058
+  },
+  "val": {
+    "rows": 30810,
+    "share": 0.1407,
+    "unique_domains": 26317,
+    "phishing": 10647,
+    "legitimate": 20163,
+    "phishing_share": 0.3456
+  },
+  "test": {
+    "rows": 29453,
+    "share": 0.1345,
+    "unique_domains": 26317,
+    "phishing": 9170,
+    "legitimate": 20283,
+    "phishing_share": 0.3113
+  }
+}

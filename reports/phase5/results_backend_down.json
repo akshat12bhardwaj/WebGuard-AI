@@ -1,0 +1,18 @@
+{
+  "chrome_version": "Chrome/155.0.8059.41",
+  "extension_id": "lafljeioebihgenmmbbcpbbafifhkjdo",
+  "extension_loaded": true,
+  "own_tab_status": "Pages using \"chrome-extension:\" (browser or local pages) cannot be analyzed. Type an address to check it instead.",
+  "backend_down": {
+    "result_visible": false,
+    "badge": null,
+    "risk": null,
+    "confidence": null,
+    "note": null,
+    "ti": [],
+    "rules": [],
+    "error": "Cannot reach the analyzer backend at 127.0.0.1:8000. Is it running?",
+    "retry_button_visible": true
+  },
+  "keyboard_enter_submits": false
+}
