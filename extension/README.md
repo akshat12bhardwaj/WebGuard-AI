@@ -16,13 +16,17 @@ navigation. Only the page URL is sent, and only to the local backend.
 ```powershell
 cd website-risk-analyzer                                     # the repository root
 & $HOME\.venvs\wra\Scripts\Activate.ps1
-$env:URLHAUS_AUTH_KEY = "<your abuse.ch Auth-Key>"            # optional
-$env:GOOGLE_SAFE_BROWSING_KEY = "<your Google API key>"        # optional
-uvicorn backend.api:app --host 127.0.0.1 --port 8000
+python -m backend.serve        # loads the repository's .env, then starts the API on 127.0.0.1:8000
 ```
 
-The backend reads keys from environment variables only. There is no `.env` loader, and `python-dotenv` is not installed.
-Set the keys in the same PowerShell window before starting uvicorn. Never put keys in extension files or commit them;
+`python -m backend.serve` reads `.env` from the repository root with the standard library, so no extra package is
+needed. Copy `.env.example` to `.env` and fill in only the keys you have.
+- Variables already set in the shell win over `.env`.
+- Empty values are ignored, so a missing key still shows as "not configured".
+- At start-up the launcher prints the *names* it loaded, never the values.
+
+`uvicorn backend.api:app --host 127.0.0.1 --port 8000` loads `.env` the same way (`backend/__init__.py`, only when
+served by uvicorn, so tests and the Phase 6 runner never read it). Never put keys in extension files or commit them:
 `.env` is gitignored, and `.env.example` lists the variable names only.
 
 | Source | Status without a key | How to get a key | Endpoint used (checked against official docs 2026-10-20) |

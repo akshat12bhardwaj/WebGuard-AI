@@ -1,7 +1,7 @@
 # Backend (phase 2: thin API, no extension yet)
 
 ```bash
-uvicorn backend.api:app --host 127.0.0.1 --port 8000      # from the repository root
+python -m backend.serve      # from the repository root; loads .env (so does `uvicorn backend.api:app ...`)
 curl -X POST http://127.0.0.1:8000/api/v1/analyze -H "Content-Type: application/json" -d "{\"url\":\"https://www.wikipedia.org\"}"
 ```
 

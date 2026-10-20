@@ -136,7 +136,7 @@ try {
     results[name] = { ...(await r.ev(`({ visible: !document.getElementById('report').hidden, missing: !document.getElementById('missing').hidden,
       score: document.getElementById('r-score').textContent, category: document.getElementById('r-badge').textContent,
       rule_rows: document.querySelectorAll('#r-rules tr').length, counts: document.getElementById('r-rule-counts').textContent,
-      sources: document.querySelectorAll('#r-sources dt').length, flow: [...document.querySelectorAll('#r-flow .chip')].map(c => c.textContent),
+      sources: document.querySelectorAll('#r-sources dt').length, sourceLines: [...document.querySelectorAll('#r-sources dt')].map(d => d.textContent + ': ' + d.nextElementSibling.textContent), flow: [...document.querySelectorAll('#r-flow .chip')].map(c => c.textContent),
       logo: document.querySelector('img[src$="logo.svg"]').naturalWidth > 0, horizontalScroll: document.documentElement.scrollWidth > innerWidth })`)), errors: r.errors() };
     await r.shot(`${name}.png`, true);
   }

@@ -8,12 +8,12 @@ in progress, and no Phase 6 results exist yet.
 
 **Quick start:**
 1. Run the pipeline below, which creates `models/model_bundle.joblib`. Data and model files are not in the repository.
-2. Start the backend: `uvicorn backend.api:app --host 127.0.0.1 --port 8000`.
+2. Start the backend: `python -m backend.serve`. This loads `.env`, then serves on 127.0.0.1:8000.
 3. Load `extension/` via chrome://extensions → Developer mode → Load unpacked.
 4. Open a page and click the WebGuard AI icon. It shows the score, and *View detailed report* opens the full report.
 
-**Optional reputation keys:** set `URLHAUS_AUTH_KEY` and `GOOGLE_SAFE_BROWSING_KEY` as environment variables before
-starting the backend. `.env.example` lists the names and where to get each key. Never commit real keys: `.env` is
+**Optional reputation keys:** put `URLHAUS_AUTH_KEY` and `GOOGLE_SAFE_BROWSING_KEY` in `.env` (read by
+`python -m backend.serve`), or set them as environment variables before starting the backend. `.env.example` lists the names and where to get each key. Never commit real keys: `.env` is
 gitignored. Without keys, those two sources report "not checked — not configured".
 
 The model scores a URL from its **hostname only** (17 features, no page download). Its output is a calibrated
@@ -75,7 +75,7 @@ python -m ml.fusion_report               # raw model vs final API (~2 min, offli
 # phase 4
 python -m backend.openphish_update       # refresh local OpenPhish snapshot (max every 12 h)
 python -m ml.brand_rule_diagnostic       # diagnostic brand-rule counts -> reports/phase4/
-uvicorn backend.api:app --host 127.0.0.1 --port 8000
+python -m backend.serve                  # API on 127.0.0.1:8000 with .env loaded (`uvicorn backend.api:app` also loads it)
 # phase 5
 cd extension; npm test; cd ..          # 49 mocked extension tests (Node 20+)
 # phase 6 (frozen 2026-10-20): see docs/PHASE6_PROTOCOL.md; do not change frozen files
