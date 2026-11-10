@@ -1,0 +1,295 @@
+/* WebGuard consumer system · r3 · local assets only, monochrome */
+:root {
+  color-scheme: dark;
+  --bg: #080808;
+  --panel: #111;
+  --surface: #171717;
+  --raised: #1e1e1e;
+  --text: #f5f5f5;
+  --secondary: #a3a3a3;
+  --muted: #8a8a8a;
+  --line: #303030;
+  --line-strong: #4a4a4a;
+  --white: #fff;
+  --radius: 4px;
+  --space: 8px;
+  /* Type: system faces only (no network fonts in an extension page). */
+  --font-sans: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui,
+    -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Cascadia Mono", "Cascadia Code", Consolas, ui-monospace,
+    "SFMono-Regular", Menlo, monospace;
+  /* Icon + spacing tokens shared by every icon/text pairing. */
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --gap-icon: 8px;
+  --stroke: 1.5px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --grid-line: rgb(255 255 255 / 0.035);
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+}
+button,
+input {
+  font: inherit;
+}
+button,
+a,
+input,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.5;
+}
+a {
+  color: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+}
+/* Icons: fixed box, centred, constant stroke weight at every size. */
+.ico {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+.ico path {
+  vector-effect: non-scaling-stroke;
+}
+[data-icon] {
+  display: inline-block;
+  flex: none;
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  font-style: normal;
+}
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-icon);
+  min-height: 44px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-strong);
+  padding: 0 18px;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  transition:
+    background 0.18s var(--ease),
+    border-color 0.18s var(--ease),
+    color 0.18s var(--ease),
+    transform 0.18s var(--ease);
+}
+button:hover {
+  background: var(--raised);
+  border-color: #8a8a8a;
+}
+.primary {
+  background: var(--white);
+  color: #080808;
+  border-color: var(--white);
+}
+.primary:hover {
+  background: #dcdcdc;
+  border-color: #dcdcdc;
+  color: #080808;
+}
+button [data-icon] {
+  transition: transform 0.2s var(--ease);
+}
+button:hover [data-icon="arrow-up-right"] {
+  transform: translate(2px, -2px);
+}
+button:hover [data-icon="arrow-right"] {
+  transform: translateX(3px);
+}
+button:hover [data-icon="refresh"] {
+  transform: rotate(-60deg);
+}
+button:active {
+  transform: translateY(1px);
+}
+[hidden] {
+  display: none !important;
+}
+p {
+  line-height: 1.55;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.eyebrow {
+  font: 500 12px/1.5 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--secondary);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.brand em {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--secondary);
+  letter-spacing: 0;
+}
+.brand img {
+  width: 28px;
+  height: 28px;
+  flex: none;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* Verdict symbol: square frame, icon centred optically, shape differs by verdict (not colour). */
+.risk-symbol {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  border: 1px solid #6a6a6a;
+  flex: none;
+  color: var(--text);
+}
+.risk-symbol .ico {
+  --stroke: 2px;
+}
+.cat-high_risk .risk-symbol,
+.cat-dangerous .risk-symbol {
+  background: var(--white);
+  border-color: var(--white);
+  color: #080808;
+}
+.cat-dangerous .risk-symbol {
+  outline: 1px solid var(--white);
+  outline-offset: 2px;
+}
+.cat-dangerous {
+  --risk-pattern: repeating-linear-gradient(135deg, #fff 0 2px, #222 2px 5px);
+}
+/* Band meter (gauge.js): four backend bands, the active one lit, a tick at the score. Pages set height/margins. */
+.meter {
+  position: relative;
+  display: flex;
+  gap: 3px;
+  height: 4px;
+}
+.meter i {
+  flex: 1 1 25%;
+  background: #2a2a2a;
+  transition: background 0.3s var(--ease);
+}
+.meter i.on {
+  background: var(--white);
+}
+.meter .mark {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: var(--x);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--white);
+  box-shadow: 0 0 0 2px var(--panel);
+  transition: left 0.5s var(--ease);
+}
+.meter:not([style]) .mark {
+  display: none;
+}
+.score {
+  font-family: var(--font-display);
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.score .of {
+  font-size: 16px;
+  color: var(--secondary);
+  letter-spacing: 0;
+  margin-left: 4px;
+  font-weight: 400;
+}
+.reveal {
+  animation: reveal 0.45s var(--ease);
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

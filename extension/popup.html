@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>WebGuard AI</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <span class="brand"
+        ><img src="icons/identity.svg" alt="" width="20" height="20" />WEBGUARD
+        <em>/ AI</em></span
+      ><span id="fresh" class="fresh"></span>
+    </header>
+    <main>
+      <p class="site">
+        <i data-icon="globe" aria-hidden="true"></i
+        ><span id="host" class="host">Finding your website…</span>
+      </p>
+      <section
+        id="gauge-box"
+        class="result"
+        data-state="idle"
+        aria-label="Website assessment"
+      >
+        <div class="verdict">
+          <span id="symbol" class="risk-symbol" aria-hidden="true"></span>
+          <p id="badge" class="category">Ready to check</p>
+          <p class="score" id="score-label" role="img">
+            <span id="risk">–</span><span class="of">/100</span>
+          </p>
+        </div>
+        <div id="meter" class="meter" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><b class="mark"></b>
+        </div>
+        <p id="note" class="note" role="status" aria-live="polite">
+          Understand the risk before you share information.
+        </p>
+      </section>
+      <p id="next-action" class="next-action"></p>
+      <p id="coverage" class="coverage"></p>
+      <div class="actions">
+        <button id="open-report" type="button" class="primary" hidden>
+          <span>View report</span
+          ><i data-icon="arrow-up-right" aria-hidden="true"></i></button
+        ><button id="retry" type="button" class="secondary" hidden>
+          <i data-icon="refresh" aria-hidden="true"></i
+          ><span id="retry-label">Try again</span>
+        </button>
+      </div>
+    </main>
+    <footer class="auto">
+      <a class="check-another" href="report.html" target="_blank" rel="noopener"
+        >Check another site<i data-icon="arrow-right" aria-hidden="true"></i
+      ></a>
+      <label class="auto-toggle" for="auto"
+        ><span class="auto-title">Auto-check</span
+        ><button
+          id="auto"
+          type="button"
+          class="switch"
+          role="switch"
+          aria-checked="false"
+          aria-label="Automatic checks"
+          aria-describedby="auto-text"
+        ></button
+      ></label>
+      <p id="auto-text" class="auto-text" hidden>
+        Check each site you visit (address only).
+      </p>
+    </footer>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

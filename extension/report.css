@@ -1,0 +1,450 @@
+/* Report r4: one screen on desktop — site + verdict + score, three findings, one recommendation. */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 100% 32px,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 32px
+      100%,
+    var(--bg);
+  font-size: 14px;
+}
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  padding: 8px 12px;
+  background: var(--white);
+  color: #080808;
+  z-index: 10;
+}
+.skip:focus {
+  top: 8px;
+}
+.appbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 52px;
+  padding: 0 max(24px, calc((100vw - 1160px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: rgb(8 8 8 / 0.85);
+}
+.appbar .brand {
+  font-size: 13.5px;
+  gap: 10px;
+  letter-spacing: 0.06em;
+}
+.appbar .brand img {
+  width: 22px;
+  height: 22px;
+}
+.app-caption {
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+.app-meta {
+  margin-left: auto;
+  font: 500 12px/1 var(--font-mono);
+  color: var(--muted);
+  white-space: nowrap;
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px 24px 20px;
+}
+.state {
+  padding: 64px 0;
+  color: var(--secondary);
+}
+/* Centred in the remaining height, so tall screens have no dead lower half. */
+#report {
+  display: grid;
+  gap: clamp(12px, 2vh, 22px);
+  margin-block: auto;
+}
+#report[hidden] {
+  display: none;
+}
+#report[aria-busy="true"] .hero,
+#report[aria-busy="true"] .cards {
+  opacity: 0.45;
+  transition: opacity 0.2s var(--ease);
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 16px;
+}
+h2.eyebrow {
+  font-family: var(--font-mono);
+}
+/* Hero: the one dominant panel. */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  gap: 24px 48px;
+  align-items: center;
+  padding: clamp(20px, 3.2vh, 40px) clamp(24px, 3vw, 44px);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #141414, var(--panel));
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+}
+.hero::before {
+  left: -1px;
+  top: -1px;
+  border-left: 2px solid var(--white);
+  border-top: 2px solid var(--white);
+}
+.hero::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 2px solid #777;
+  border-bottom: 2px solid #777;
+}
+.hero-site {
+  min-width: 0;
+}
+#r-host {
+  margin-top: 4px;
+  font-size: clamp(24px, 2.9vh, 32px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+.url {
+  margin-top: 4px;
+  font: 400 12px/1.4 var(--font-mono);
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.verdict {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+.verdict .risk-symbol {
+  width: 36px;
+  height: 36px;
+  padding: 7px;
+}
+#r-label {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.4vh, 60px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.hero-note {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--secondary);
+}
+.readout {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.readout .score {
+  font-size: clamp(72px, 10vh, 112px);
+  line-height: 0.9;
+}
+.score-denom {
+  font: 400 16px var(--font-mono);
+  color: var(--secondary);
+}
+.hero .meter {
+  height: 6px;
+  margin: 18px 0 8px;
+}
+.hero .meter .mark {
+  top: -5px;
+  bottom: -5px;
+  width: 3px;
+}
+.bands {
+  display: flex;
+  justify-content: space-between;
+  font: 500 12px/16px var(--font-mono);
+  color: var(--muted);
+}
+.score-caption {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+/* No score (unknown): say so plainly instead of a placeholder digit. */
+#report:has(.meter:not([style])) .readout > * {
+  display: none;
+}
+#report:has(.meter:not([style])) .readout::before {
+  content: "No score";
+  font: 650 32px/1.1 var(--font-display);
+  color: var(--secondary);
+}
+/* Findings: icon + category, then the finding, then one line. Only warnings carry a mark. */
+.findings-title {
+  margin-bottom: 10px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: clamp(14px, 2vh, 22px) clamp(16px, 1.6vw, 24px);
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.card[data-tone="warn"] {
+  border-color: var(--line-strong);
+  background: linear-gradient(180deg, #181818, var(--panel));
+}
+.card[data-tone="warn"]::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid var(--white);
+  border-top: 2px solid var(--white);
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-icon);
+  color: var(--secondary);
+}
+.card-icon {
+  display: grid;
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  flex: none;
+}
+.card h3 {
+  font: 500 12px/16px var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.card-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+}
+.card[data-tone="warn"] .card-status::before {
+  content: "!";
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  background: var(--white);
+  color: #080808;
+  font: 700 12px/1 var(--font-sans);
+}
+/* A check that did not run reads quieter than a result, never as clear. */
+.card[data-tone="none"] .card-status {
+  color: var(--secondary);
+}
+.card[data-tone="none"] .card-text {
+  color: var(--muted);
+}
+.card-text {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--secondary);
+}
+.more {
+  align-self: flex-start;
+  min-height: 28px;
+  margin-top: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-strong);
+}
+.more:hover {
+  background: none;
+  text-decoration-color: var(--white);
+}
+.more-list {
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 18px 20px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--text);
+}
+.more-list h4 {
+  margin: 0;
+}
+.more-list::backdrop {
+  background: rgb(0 0 0 / 0.55);
+}
+.more-list ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  line-height: 1.5;
+}
+/* Recommendation */
+.next {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px 32px;
+  padding: 18px 24px 18px 22px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--white);
+  background: var(--panel);
+}
+.action {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 650;
+  line-height: 1.3;
+}
+.recheck-error {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--secondary);
+}
+.disclaimer {
+  font-size: 12px;
+  color: var(--muted);
+}
+/* Entry state (no saved result): the address checker opened from the popup. */
+.entry {
+  max-width: 560px;
+  padding: 56px 0;
+}
+.entry h1 {
+  margin: 10px 0 12px;
+  font-size: clamp(32px, 5vw, 48px);
+}
+.entry > p:not(.eyebrow) {
+  color: var(--secondary);
+}
+.check-form {
+  margin-top: 28px;
+}
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+.input-row input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--text);
+}
+.input-row input:focus-visible {
+  outline-offset: 1px;
+}
+#check-error {
+  margin-top: 10px;
+  color: var(--text);
+}
+/* Short desktop screens (1366×768, 1280×720): slimmer header and margins. */
+@media (min-width: 861px) and (max-height: 800px) {
+  .appbar {
+    height: 46px;
+  }
+  main {
+    padding-block: 14px;
+  }
+  .verdict {
+    margin-top: 14px;
+  }
+}
+/* Tablet: hero stacks; cards stay in a row while they fit. */
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero-score {
+    max-width: 420px;
+  }
+}
+/* Mobile: one column, natural scrolling. */
+@media (max-width: 640px) {
+  .appbar {
+    padding: 0 16px;
+  }
+  .app-caption {
+    display: none;
+  }
+  main {
+    padding: 16px;
+  }
+  .hero {
+    padding: 20px;
+  }
+  #r-host {
+    font-size: 22px;
+  }
+  #r-label {
+    font-size: 34px;
+  }
+  .readout .score {
+    font-size: 64px;
+  }
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .next {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px 18px;
+  }
+  .next button {
+    width: 100%;
+  }
+}

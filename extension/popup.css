@@ -1,0 +1,398 @@
+/* Popup r4. The body requests a fixed 360 px (no max-width:100vw: Chrome's popup self-sizing would shrink it).
+   Hierarchy: site → verdict + score (one panel) → next step → report. Everything else is footer-weight. */
+body {
+  width: 360px;
+  font-size: 13px;
+  background:
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 100% 24px,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 24px
+      100%,
+    var(--bg);
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+}
+.top .brand {
+  font-size: 12.5px;
+  gap: 8px;
+  letter-spacing: 0.06em;
+}
+.top .brand img {
+  width: 20px;
+  height: 20px;
+}
+/* Single state line: dot + freshness. It never repeats the verdict. */
+.fresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font: 500 12px/1 var(--font-mono);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.fresh:not(:empty)::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  flex: none;
+  background: var(--secondary);
+}
+body:has(.result[data-state="done"]) .fresh::before {
+  background: var(--white);
+}
+body:has(.result[data-state="scanning"]) .fresh::before {
+  background: var(--white);
+  animation: blink 1s ease-in-out infinite;
+}
+main {
+  padding: 4px 16px 16px;
+}
+.site {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-icon);
+  margin-bottom: 10px;
+  color: var(--secondary);
+}
+.host {
+  min-width: 0;
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Result panel: the one framed element; a single corner accent carries the geometric identity. */
+.result {
+  position: relative;
+  padding: 14px 14px 13px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #141414, var(--panel));
+}
+.result::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid var(--white);
+  border-top: 2px solid var(--white);
+  pointer-events: none;
+}
+.verdict {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+}
+.risk-symbol {
+  width: 26px;
+  height: 26px;
+}
+.category {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.score {
+  flex: none;
+  font-size: 30px;
+  line-height: 32px;
+  letter-spacing: -0.04em;
+}
+.score .of {
+  font: 400 12px var(--font-mono);
+  margin-left: 2px;
+  letter-spacing: 0;
+}
+.meter {
+  margin: 12px 0 11px;
+}
+.note {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--secondary);
+}
+.next-action {
+  margin-top: 12px;
+  padding-left: 10px;
+  border-left: 2px solid var(--white);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 19px;
+}
+.coverage {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--muted);
+}
+.next-action:empty,
+.coverage:empty {
+  display: none;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.actions:not(:has(button:not([hidden]))) {
+  display: none;
+}
+.actions button {
+  min-height: 40px;
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+.actions .primary {
+  flex: 1;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+.actions .secondary {
+  flex: 1;
+  padding: 0 14px;
+}
+/* Beside the report button Recheck is icon-only; its name comes from aria-label. */
+.actions .secondary.icon-only {
+  flex: none;
+  width: 40px;
+  padding: 0;
+}
+.icon-only #retry-label {
+  display: none;
+}
+/* Footer: secondary controls share one quiet row. */
+.auto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 12px;
+  padding: 0 16px;
+  border-top: 1px solid var(--line);
+}
+.check-another {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  font-size: 12.5px;
+  color: var(--secondary);
+  text-decoration: none;
+  transition: color 0.18s var(--ease);
+}
+.check-another [data-icon] {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s var(--ease);
+}
+.check-another:hover {
+  color: var(--white);
+}
+.check-another:hover [data-icon] {
+  transform: translateX(2px);
+}
+.auto-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.auto-title {
+  font-size: 12.5px;
+  line-height: 20px;
+  color: var(--secondary);
+}
+.auto-text {
+  flex-basis: 100%;
+  padding-bottom: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--secondary);
+}
+.switch {
+  position: relative;
+  min-height: 36px;
+  width: 36px;
+  flex: none;
+  border: 0;
+  padding: 0;
+  background: none;
+}
+.switch::before {
+  content: "";
+  position: absolute;
+  inset: 9px 0;
+  border: 1px solid #6a6a6a;
+  border-radius: 18px;
+  background: var(--panel);
+  transition:
+    background 0.18s var(--ease),
+    border-color 0.18s var(--ease);
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 13px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #aaa;
+  transition: transform 0.2s var(--ease);
+}
+.switch[aria-checked="true"]::before {
+  background: var(--white);
+  border-color: var(--white);
+}
+.switch[aria-checked="true"]::after {
+  transform: translateX(18px);
+  background: #080808;
+}
+.switch:hover {
+  background: none;
+}
+.switch:hover::before,
+.auto-toggle:hover .switch::before {
+  border-color: #bbb;
+}
+/* States */
+.result[data-state="scanning"] .meter i {
+  animation: seg-scan 1.2s ease-in-out infinite;
+}
+.result[data-state="scanning"] .meter i:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+.result[data-state="scanning"] .meter i:nth-of-type(3) {
+  animation-delay: 0.3s;
+}
+.result[data-state="scanning"] .meter i:nth-of-type(4) {
+  animation-delay: 0.45s;
+}
+.result[data-state="done"] .verdict,
+.result[data-state="done"] .note {
+  animation: reveal 0.35s var(--ease) both;
+}
+/* No score (checking, unknown): no empty "–/100" slot; the verdict carries it. */
+.result:has(.meter:not([style])) .score {
+  display: none;
+}
+/* Hold the result height while checking so the popup does not jump when the verdict lands. */
+body:has(.result[data-state="scanning"]) main {
+  min-height: 267px;
+}
+/* No assessment: no score, no meter; the explanation takes the space. */
+.result[data-state="problem"] .score,
+.result[data-state="problem"] .meter {
+  display: none;
+}
+.result[data-state="problem"] .category {
+  font-size: 18px;
+  line-height: 22px;
+}
+.result[data-state="problem"] .verdict {
+  margin-bottom: 8px;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes seg-scan {
+  0%,
+  100% {
+    background: #2a2a2a;
+  }
+  50% {
+    background: #9a9a9a;
+  }
+}
+
+/* Narrow effective viewport (browser zoom): same composition, never smaller than 12 px text. */
+@media (max-width: 300px) {
+  .top,
+  .auto {
+    padding-inline: 12px;
+  }
+  main {
+    padding: 4px 12px 12px;
+  }
+  .fresh {
+    display: none;
+  }
+  .host {
+    font-size: 14px;
+  }
+  .result {
+    padding: 12px 10px;
+  }
+  .category {
+    font-size: 18px;
+  }
+  .score {
+    font-size: 24px;
+  }
+  .actions .primary [data-icon] {
+    display: none;
+  }
+}
+
+/* Short work areas retain every control and warning, without hiding text. */
+@media (max-height: 340px) {
+  .top {
+    height: 32px;
+  }
+  main {
+    padding-bottom: 10px;
+  }
+  .site {
+    margin-bottom: 6px;
+  }
+  .result {
+    padding: 10px 12px;
+  }
+  .meter {
+    margin: 8px 0;
+  }
+  .next-action {
+    margin-top: 8px;
+  }
+  .actions {
+    margin-top: 10px;
+  }
+  .actions button {
+    min-height: 34px;
+  }
+  .actions .secondary.icon-only {
+    width: 34px;
+  }
+  .check-another {
+    min-height: 32px;
+  }
+  .switch {
+    min-height: 32px;
+  }
+  .switch::before {
+    inset: 7px 0;
+  }
+  .switch::after {
+    top: 11px;
+  }
+}

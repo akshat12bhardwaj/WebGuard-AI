@@ -1,0 +1,18 @@
+# Pinned versions verified on Python 3.13.7 / Windows 11 (2026-10-15)
+pandas==3.0.6
+numpy==2.5.4
+scikit-learn==1.9.1
+xgboost==3.4.1
+lightgbm==4.7.0
+shap==0.53.0
+tldextract==5.4.0
+matplotlib==3.11.2
+joblib==1.6.0
+tabulate==0.10.0
+# backend (phase 2)
+fastapi==0.143.1
+uvicorn==0.54.0
+httpx==0.28.1
+# dev
+pytest==9.1.1
+ruff
